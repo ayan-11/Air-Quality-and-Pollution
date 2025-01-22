@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Prediction</title>
+</head>
+<body>
+    <h1>Air Quality Prediction</h1>
+    <form action="/predict" method="POST">
+        <label for="temperature">Temperature:</label>
+        <input type="number" name="temperature" id="temperature" required><br>
+
+        <label for="humidity">Humidity:</label>
+        <input type="number" name="humidity" id="humidity" required><br>
+
+        <label for="pm25">PM2.5:</label>
+        <input type="number" name="pm25" id="pm25" required><br>
+
+        <label for="pm10">PM10:</label>
+        <input type="number" name="pm10" id="pm10" required><br>
+
+        <label for="co">CO:</label>
+        <input type="number" name="co" id="co" required><br>
+
+        <label for="no2">NO2:</label>
+        <input type="number" name="no2" id="no2" required><br>
+
+        <label for="so2">SO2:</label>
+        <input type="number" name="so2" id="so2" required><br>
+
+        <label for="pia">Proximity to Industrial Areas:</label>
+        <input type="number" name="pia" id="pia" required><br>
+
+        <label for="pd">Population Density:</label>
+        <input type="number" name="pd" id="pd" required><br>
+
+        <button type="number">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Prediction Result: {{ prediction }}</h2>
+        <h3>PM2.5 Distribution for the Given Input:</h3>
+        <img src="data:image/png;base64,{{ plot_url }}" alt="PM2.5 Distribution Plot">
+    {% endif %}
+</body>
+</html>
